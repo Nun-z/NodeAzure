@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/b81fb71d-cc14-4e9a-ad06-26d00325e8f0/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/AzurePipelineConnection",
+    "appService.deploySubpath": "."
+}
