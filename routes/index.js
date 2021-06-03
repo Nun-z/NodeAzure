@@ -10,7 +10,7 @@ router.get('/', function(req, res)
   var authenticate = require("azure.js");
 });
 
-function getPipelineStatus(req, res, next) ;
+function getPipelineStatus(req, res, next)
 {
   //var pipelineName = req.query.pipelineName
 
