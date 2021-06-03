@@ -22,18 +22,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 //app.use('/users', usersRouter);
 
-const { DefaultAzureCredential } = require("@azure/identity");
-const credentials = new DefaultAzureCredential();
-
-var subscriptionId = process.env.AZURE_SUBSCRIPTION_ID;
-
-const { ResourceManagementClient } = require("@azure/arm-resources");
-const resourceManagement = new ResourceManagementClient(credentials, subscriptionId);
-
-resourceManagement.resourceGroups.list()
-.then(result=>{console.log(JSON.stringify(result))})
-.catch(err=>{console.log(err)});
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
