@@ -1,8 +1,7 @@
 {
   "name": "azurenode",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "azure node",
   "scripts": {
     "build": "tsc --project ./"
   },
@@ -11,7 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
-    "express": "^4.17.1"
+    "eventsource": "^1.1.0",
+    "express": "^4.17.1",
+    "request": "^2.88.2",
+    "ws": "^7.4.6"
   },
   "devDependencies": {
     "@types/express": "^4.17.12",
