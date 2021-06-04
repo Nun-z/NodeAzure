@@ -19,11 +19,11 @@ else
 const project = 'PPSSPP Generate Store Package'; //example
 const organization = 'Nun-z';
 
-  app.get('/', (request, response) => {
+app.get('/', (request, response) => {
     response.send('Server is starting.');
-  });
+});
 
-  app.post('/', (request, response) => {
+app.post('/', (request, response) => {
     const pipelineID = request.body.pipelineID; // alphanumeric
     var url = `https://dev.azure.com/${organization}/${project}/_apis/pipelines/${pipelineID}/runs?api-version=6.0-preview.1`;
 
@@ -31,7 +31,7 @@ const organization = 'Nun-z';
         Authorization: `Basic ${Buffer.from(`PAT:${accessToken}`).toString('base64')}`,
         'X-TFS-FedAuthRedirect': 'Suppress',    
     };
-  
+    
     const axiosInstance = axios.create({
         headers: headers,
     });
