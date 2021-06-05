@@ -26,6 +26,7 @@ app.get('/', (request, response) => {
 app.post('/', (request, response) => {
     const pipelineID = request.body.pipelineID; // alphanumeric
     var url = `https://dev.azure.com/${organization}/${project}/_apis/pipelines/${pipelineID}/runs?api-version=6.0-preview.1`;
+    url = encodeURI(url);
 
     const headers = {
         Authorization: `Basic ${Buffer.from(`PAT:${accessToken}`).toString('base64')}`,
