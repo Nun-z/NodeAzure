@@ -38,9 +38,12 @@ app.post('/', (request, response) => {
 
     console.log(axiosInstance.getUri)
     axiosInstance.post(url)
-    .then(function (results) {
-        results.status 
-    })
-});
+    .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+    });
  
 app.listen(8080);
