@@ -25,7 +25,7 @@ app.get('/', (request, response) => {
 
 app.post('/', (request, response) => {
     //const pipelineID = request.body.pipelineID; // alphanumeric
-    const pipelineID = "20.1.21155.0";
+    const pipelineID = process.env.TEST_VALUE;
     var url = `https://dev.azure.com/${organization}/${project}/_apis/pipelines/${pipelineID}/runs?api-version=6.0-preview.1`;
     url = encodeURI(url);
 
