@@ -37,7 +37,10 @@ app.post('/', (request, response) => {
     });
 
     console.log(axiosInstance.getUri)
-    axiosInstance.post(url);
+    axiosInstance.post(url)
+    .then(function (results) {
+        results.status 
+    })
 });
  
 app.listen(8080);
