@@ -16,23 +16,22 @@ else
     console.log('token is present!');
 }
 
-const project = 'PPSSPP Generate Store Package'; //example
-const organization = 'Nun-z';
-
 app.get('/', (request, response) => {
     response.send('Server is starting.');
 });
 
 app.post('/', (request, response) => {
-    //const pipelineID = request.body.pipelineID; // alphanumeric
-    const pipelineID = process.env.TEST_VALUE;
+    //const pipelineID = process.env.TEST_VALUE;
+    const pipelineID = request.body.pipelineID; // alphanumeric
+    const project = request.body.project;
+    const organization = request.body.organization;
+
     var url = `https://dev.azure.com/${organization}/${project}/_apis/pipelines/${pipelineID}/runs?api-version=6.0-preview.1`;
     url = encodeURI(url);
 
     const headers = {
         Authorization: `Basic ${Buffer.from(`PAT:${accessToken}`).toString('base64')}`,
-        'X-TFS-FedAuthRedirect': 'Suppress',  
-        //'Content-Type': 'application/json;charset=UTF-8',  
+        'X-TFS-FedAuthRedirect': 'Suppress',   
     };
     
     const axiosInstance = axios.create({
