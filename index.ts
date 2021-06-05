@@ -1,5 +1,6 @@
 import express from "express";
 import axios from 'axios';
+import * as cookieParser from 'cookie-parser';
 
 const app = express();
 const accessToken = process.env.AZURE_ACCESS_TOKEN;
