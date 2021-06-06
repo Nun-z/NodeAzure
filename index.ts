@@ -39,7 +39,7 @@ app.post('/', (request, response) => {
 
     console.log(axiosInstance.getUri)
     axiosInstance.post(url, { source: "NodeAzure"})
-    .then(result => { result.data })
+    .then(result => { result.data.state })
       .catch(function (error) {
         console.log(error);
       })
