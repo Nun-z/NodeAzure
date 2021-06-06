@@ -52,5 +52,5 @@ jobs:
       with:
         app-name: 'AzurePipelineConnection'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ec95355d166449bb837d37b6df74fc4a }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_cca75e46f19c4b71a7049de7ea9ab5ad }}
         package: .
