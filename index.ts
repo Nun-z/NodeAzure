@@ -27,7 +27,6 @@ app.post('/', (request, response) => {
     const organization = request.body.organization;
 
     var url = `https://dev.azure.com/${organization}/${project}/_apis/pipelines/${pipelineID}/runs?api-version=6.0-preview.1`;
-    url = encodeURI(url);
 
     const headers = {
         Authorization: `Basic ${Buffer.from(`PAT:${accessToken}`).toString('base64')}`,
@@ -36,14 +35,13 @@ app.post('/', (request, response) => {
     
     const axiosInstance = axios.create({
         headers: headers,
-        
     });
 
     console.log(axiosInstance.getUri)
     axiosInstance.post(url, { source: "NodeAzure"})
-    .then(function (response) {
-        console.log(response);
-      })
+    .then(data => {
+        response.json({ message: 'request sent', data});
+    })
       .catch(function (error) {
         console.log(error);
       })
