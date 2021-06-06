@@ -39,7 +39,7 @@ app.post('/', (request, response) => {
 
     console.log(axiosInstance.getUri)
     axiosInstance.post(url, { source: "NodeAzure"})
-    .then(result => { result.data.state })
+    .then(result => { "Request was sent.  Polling is disabled." })
       .catch(function (error) {
         console.log(error);
       })
