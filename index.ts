@@ -37,8 +37,8 @@ app.post('/', (request, response) => {
         axiosInstance.post(url, { source: "NodeAzure"});
         response.send("Request was sent but will not be awaited");
     }
-    catch {
-        response.send("An error occurred");
+    catch(error) {
+        response.send(error);
     }
 });
  
