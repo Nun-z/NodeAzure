@@ -2,7 +2,7 @@ import express from "express";
 import axios from 'axios';
 
 const app = express();
-const accessToken = process.env.AZURE_ACCESS_TOKEN;
+const accessToken = process.env.AZURE_ACCESS_TOKEN; // you will need your own token to use this
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
