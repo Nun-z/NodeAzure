@@ -7,14 +7,9 @@ const accessToken = process.env.AZURE_ACCESS_TOKEN;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-if (accessToken == null || accessToken === '') 
-{
-    throw new Error('Please provide an access token');
+if (accessToken == null || accessToken === '') {
+    throw new Error('Invalid access token');
 } 
-else 
-{
-    console.log('token is present!');
-}
 
 app.get('/', (request, response) => {
     response.send('Server is starting.');
@@ -26,7 +21,7 @@ app.post('/', (request, response) => {
     const project = request.body.project;
     const organization = request.body.organization;
 
-    var url = `https://dev.azure.com/${organization}/${project}/_apis/pipelines/${pipelineID}/runs?api-version=6.0-preview.1`;
+    const url = `https://dev.azure.com/${organization}/${project}/_apis/pipelines/${pipelineID}/runs?api-version=6.0-preview.1`;
 
     const headers = {
         Authorization: `Basic ${Buffer.from(`PAT:${accessToken}`).toString('base64')}`,
@@ -38,11 +33,13 @@ app.post('/', (request, response) => {
     });
 
     console.log(axiosInstance.getUri)
-    axiosInstance.post(url, { source: "NodeAzure"})
-    .then(result => { "Request was sent.  Polling is disabled." })
-      .catch(function (error) {
-        console.log(error);
-      })
-    });
+    try {
+        axiosInstance.post(url, { source: "NodeAzure"});
+        response.send("Request was sent but will not be awaited");
+    }
+    catch {
+        response.send("An error occurred");
+    }
+});
  
 app.listen(8080);
