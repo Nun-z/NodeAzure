@@ -32,7 +32,6 @@ app.post('/', (request, response) => {
         headers: headers,
     });
 
-    console.log(axiosInstance.getUri)
     try {
         axiosInstance.post(url, { source: "NodeAzure"});
         response.send("Request was sent but will not be awaited");
