@@ -16,7 +16,7 @@ else {
     console.log('token is present!');
 }
 var project = 'PPSSPP Generate Store Package'; //example
-var organization = 'Nun-z';
+var organization = 'Nun-z'; //example
 app.get('/', function (request, response) {
     response.send('Server is starting.');
 });
